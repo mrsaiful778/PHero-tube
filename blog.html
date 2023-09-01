@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blogs-content</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav>
+        <nav class="container mx-auto">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <img src="./images/Logo.png" alt="">
+                </div>
+                <div class="navbar-center lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <!-- <button class="btn">Sort by view</button> -->
+                </div>
+                <div class="navbar-end">
+                    <a onclick="switchToBlogsContent()" class="btn bg-[#FF1F3D]">blogs</a>
+                </div>
+            </div>
+            <hr class=" container mx-auto pt-6">
+        </nav>
+    </nav>
+<main class="container mx-auto">
+    <div>
+        <div id="cetagory_container" class=" justify-center grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-6 pt-5">
+            <button class="btn  hover:bg-[#FF1F3D]">Var, Let and const </button>
+            <button class="btn hover:bg-[#FF1F3D]">Null and Undifined</button>
+            <button class="btn hover:bg-[#FF1F3D]">REST API</button>
+            
+          </div>
+    
+    </div>
+
+</main>
+
+
+
+</body>
+</html>

@@ -1,3 +1,7 @@
+function switchToBlogsContent() {
+  window.location.href = "blog.html";
+}
+
 const handleCatagory = async () => {
 
 
@@ -23,19 +27,23 @@ const handleLoadNews = async (cetagoryID) => {
     const data = await response.json();
 
     const cardContainer = document.getElementById('card-container');
+    cardContainer.innerHTML = "";
 
     data.data.forEach((news) => {
         const div = document.createElement('div');
         div.innerHTML = `
-        <div class="card w-96 bg-base-100 shadow-xl">
-        <figure><img src=${news?.thumbnail} /></figure>
+        <div class="card  bg-base-100 shadow-xl">
+        <figure><img class="h-48" src=${news?.thumbnail} />
+        
+        </figure>
+        <p class="text-amber-600 relative -mt-10 mr-8 text-end text-base">${news.others?.posted_date}</p>
         <div class="card-body">
           <h2 class="card-title">
             <div>
                 <div class="avatar online">
                   <div class="w-14 rounded-full">
                     <img
-                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+                      src=${news.authors?.[0].profile_picture}
                     />
                   </div>
                 </div>
@@ -43,8 +51,8 @@ const handleLoadNews = async (cetagoryID) => {
             ${news?.title}
         
           </h2>
-          <p>Awlad hossain</p>
-          <p>91k view</p>
+          <p>${news.authors?.[0].profile_name} <i class="fa-solid fa-badge-check"></i></p>
+          <p>views: ${news.others?.views}</p>
         </div>
       </div>
 
@@ -64,3 +72,4 @@ const handleLoadNews = async (cetagoryID) => {
 
 
 handleCatagory();
+handleLoadNews ("data");
